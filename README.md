@@ -45,6 +45,7 @@ cd pom.xml path
 call mvn -f pom.xml dependency:copy-dependencies
 
 11. Add SpringBootServletInitializer 
+```pom
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 @SpringBootApplication
 public class ApplicationInitializer extends SpringBootServletInitializer{
@@ -54,7 +55,7 @@ public class ApplicationInitializer extends SpringBootServletInitializer{
 	}
 
 }
-
+```
 
 12. Jetty
 ```pom
