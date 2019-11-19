@@ -9,7 +9,8 @@
   
 3. package: jar/war
 
-4.mvn compile
+4.cd project path
+  mvn compile
 
 5.mvn package
 
@@ -40,6 +41,8 @@
    <scope>provided</scope>
 </dependency>
 
+cd pom.xml path
+call mvn -f pom.xml dependency:copy-dependencies
 
 11. Add SpringBootServletInitializer 
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
@@ -51,3 +54,35 @@ public class ApplicationInitializer extends SpringBootServletInitializer{
 	}
 
 }
+
+
+12. Jetty
+	1. 添加：
+
+<dependency>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-starter-jetty</artifactId>
+<version>1.3.3.RELEASE</version>
+</dependency>
+
+	2. 注释：
+<!--<dependency>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-starter-tomcat</artifactId>
+<scope>provided</scope>
+</dependency>-->
+
+	3. 添加exclusions
+	
+<dependency>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-starter-web</artifactId>
+<exclusions>
+<exclusion>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-starter-tomcat</artifactId>
+</exclusion>
+</exclusions>
+</dependency>
+
+4. mvn spring-boot:run
